@@ -1,0 +1,137 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Styles de base pour mobile */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+/* Conteneur principal */
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+#timer {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+}
+
+#sessionType {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+/* Boutons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: 0.2s;
+    width: 100%;
+}
+
+#startPauseBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#resetBtn {
+    background-color: #dc3545;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Mode pause */
+.pause #sessionType {
+    color: #dc3545;
+}
+
+.pause #timer {
+    color: #dc3545;
+}
+
+/* Options pour personnaliser la durée */
+.settings {
+    margin-top: 15px;
+}
+
+.settings label {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.settings input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Mode sombre */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: white;
+    }
+
+    .container {
+        background: #1e1e1e;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    }
+
+    #timer {
+        color: #fff;
+    }
+
+    #sessionType {
+        color: #76c893;
+    }
+
+    .pause #sessionType {
+        color: #ff7675;
+    }
+
+    .pause #timer {
+        color: #ff7675;
+    }
+
+    button {
+        color: white;
+    }
+}
