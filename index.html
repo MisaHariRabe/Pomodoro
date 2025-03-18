@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4a90e2">
 </head>
 
 <body class="p-2 sm:p-5 dark:bg-gray-900 dark:text-amber-100 bg-gray-100 grid justify-center items-center min-h-screen">
@@ -55,6 +57,13 @@
     <audio id="endSound" src="assets/sounds/bell.mp3"></audio>
 
     <script src="static/js/script.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js")
+                .then(() => console.log("Service Worker registered successfully."))
+                .catch((error) => console.error("Service Worker registration failed:", error));
+        }
+    </script>
 </body>
 
 </html>
