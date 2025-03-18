@@ -13,6 +13,26 @@ let isRunning = false;
 let isWorkSession = true;
 let timer = null;
 
+const playButtonInnerHTML = `
+        <svg 
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" 
+            class="h-[24px] fill-white">
+            <path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
+        </svg>
+        <span class="text-xl">
+            Start
+        </span>
+        `;
+
+const pauseButtonInnerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="h-[24px] fill-white">
+            <path d="M48 64C21.5 64 0 85.5 0 112L0 400c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48L48 64zm192 0c-26.5 0-48 21.5-48 48l0 288c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48l-32 0z"/>
+        </svg>
+        <span class="text-xl">
+            Pause
+        </span>
+        `;
+
 // Met à jour le timer
 function updateDisplay() {
     let minutes = Math.floor(timeLeft / 60);
@@ -24,7 +44,7 @@ function updateDisplay() {
 function startPauseTimer() {
     if (isRunning) {
         clearInterval(timer);
-        startPauseBtn.textContent = "Démarrer";
+        startPauseBtn.innerHTML = playButtonInnerHTML;
     } else {
         timer = setInterval(() => {
             if (timeLeft > 0) {
@@ -34,7 +54,7 @@ function startPauseTimer() {
                 switchSession();
             }
         }, 1000);
-        startPauseBtn.textContent = "Pause";
+        startPauseBtn.innerHTML = pauseButtonInnerHTML;
     }
     isRunning = !isRunning;
 }
@@ -44,13 +64,12 @@ function switchSession() {
     clearInterval(timer);
     isWorkSession = !isWorkSession;
     timeLeft = isWorkSession ? workTime : breakTime;
-    sessionTypeDisplay.textContent = isWorkSession ? "Travail" : "Pause";
-    document.body.classList.toggle("pause", !isWorkSession);
-    
+    sessionTypeDisplay.textContent = isWorkSession ? "Work Time" : "Break Time";
+
     // Jouer un son à la fin d'une session
     endSound.play();
 
-    alert(isWorkSession ? "Retour au travail !" : "Pause bien méritée !");
+    alert(isWorkSession ? "Let's go back to work !" : "Well deserved break !");
     updateDisplay();
     startPauseTimer();
 }
@@ -64,9 +83,8 @@ function resetTimer() {
     breakTime = parseInt(breakInput.value) * 60;
     timeLeft = workTime;
     updateDisplay();
-    sessionTypeDisplay.textContent = "Travail";
-    document.body.classList.remove("pause");
-    startPauseBtn.textContent = "Démarrer";
+    sessionTypeDisplay.textContent = "Work Time";
+    startPauseBtn.innerHTML = playButtonInnerHTML;
 }
 
 // Mettre à jour les temps lorsque l'utilisateur change les valeurs
