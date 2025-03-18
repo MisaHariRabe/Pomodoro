@@ -8,46 +8,46 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="p-2 sm:p-5 dark:bg-gray-900 dark:text-amber-100 bg-gray-100 grid justify-center items-center h-screen">
-    <h1 class="text-6xl text-center text-medium">Misa's Pomodoro</h1>
+<body class="p-2 sm:p-5 dark:bg-gray-900 dark:text-amber-100 bg-gray-100 grid justify-center items-center min-h-screen">
+    <h1 class="text-4xl sm:text-6xl text-center font-medium">Misa's Pomodoro</h1>
 
-    <div class="dark:bg-gray-800 p-5 rounded bg-white max-w-xl">
-        <div id="timer" class="text-center text-5xl my-7">25:00</div>
-        <p id="sessionType" class="text-center text-3xl mb-4">Work Time</p>
+    <div class="dark:bg-gray-800 p-5 rounded bg-white w-full max-w-xl">
+        <div id="timer" class="text-center text-4xl sm:text-5xl my-5 sm:my-7">25:00</div>
+        <p id="sessionType" class="text-center text-2xl sm:text-3xl mb-3 sm:mb-4">Work Time</p>
 
-        <div class="grid sm:grid-cols-2 gap-3">
-            <div class="flex flex-col mb-5">
-                <label for="workDuration" class="my-2 dark:text-gray-200">Work duration (min)</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="flex flex-col mb-3 sm:mb-5">
+                <label for="workDuration" class="my-1 sm:my-2 dark:text-gray-200">Work duration (min)</label>
                 <input type="number" id="workDuration"
                     class="dark:bg-gray-700 bg-gray-100 p-2 rounded transition duration-300 focus:outline-3 focus:outline-gray-200 dark:focus:outline-gray-600"
                     placeholder="Ex: 25:00" max="25" value="25" min="1">
             </div>
-            <div class="flex flex-col mb-5">
-                <label for="breakDuration" class="my-2 dark:text-gray-200">Break duration (min)</label>
+            <div class="flex flex-col mb-3 sm:mb-5">
+                <label for="breakDuration" class="my-1 sm:my-2 dark:text-gray-200">Break duration (min)</label>
                 <input type="number" id="breakDuration"
                     class="dark:bg-gray-700 bg-gray-100 p-2 rounded transition duration-300 focus:outline-3 focus:outline-gray-200 dark:focus:outline-gray-600"
                     placeholder="Ex: 05:00" value="5" min="1">
             </div>
         </div>
 
-        <div class="grid justify-stretch gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <button id="startPauseBtn"
-                class="px-3 py-3 rounded hover:cursor-pointer hover:bg-blue-800 bg-blue-700 transition duration-300 text-white grid grid-flow-col justify-center items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-[24px] fill-white">
+                class="px-3 py-3 rounded hover:cursor-pointer hover:bg-blue-800 bg-blue-700 transition duration-300 text-white flex justify-center items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-[20px] sm:h-[24px] fill-white">
                     <path
                         d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
                 </svg>
-                <span class="text-xl">
+                <span class="text-lg sm:text-xl">
                     Start
                 </span>
             </button>
             <button id="resetBtn"
-                class="px-3 py-3 rounded hover:cursor-pointer border border-red-500 transition duration-300 text-red-500 grid grid-flow-col justify-center items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-[24px] fill-red-500">
+                class="px-3 py-3 rounded hover:cursor-pointer border border-red-500 transition duration-300 text-red-500 flex justify-center items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-[20px] sm:h-[24px] fill-red-500">
                     <path
                         d="M212.3 224.3H12c-6.6 0-12-5.4-12-12V12C0 5.4 5.4 0 12 0h48c6.6 0 12 5.4 12 12v78.1C117.8 39.3 184.3 7.5 258.2 8c136.9 1 246.4 111.6 246.2 248.5C504 393.3 393.1 504 256.3 504c-64.1 0-122.5-24.3-166.5-64.2-5.1-4.6-5.3-12.6-.5-17.4l34-34c4.5-4.5 11.7-4.7 16.4-.5C170.8 415.3 211.6 432 256.3 432c97.3 0 176-78.7 176-176 0-97.3-78.7-176-176-176-58.5 0-110.3 28.5-142.3 72.3h98.3c6.6 0 12 5.4 12 12v48c0 6.6-5.4 12-12 12z" />
                 </svg>
-                <span class="text-xl">Reset</span>
+                <span class="text-lg sm:text-xl">Reset</span>
             </button>
         </div>
     </div>
